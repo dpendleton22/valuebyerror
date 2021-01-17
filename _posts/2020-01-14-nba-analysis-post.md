@@ -70,7 +70,7 @@ All basic stats in this article are on a team level but they can also be used to
 
 ### NBA 2017 - 2018 League Summary
 
-![](/images/nba_plots/2017-2018%20NBA%20Szn.png)
+![](/images/nba_plots/2017-2018_NBA_Szn.png)
 
 <b>What is the take away from observing the 2017-2018 season overall?</b>
 * Though 40% does not initially sound great, having ~35-37% 3P% shooting is great for a team and <b>SAC was pretty efficient from the 3 point line last year</b>
@@ -81,7 +81,7 @@ All basic stats in this article are on a team level but they can also be used to
 
 <b>Now that we got a glance at last season, let's see how SAC and MIL are doing this current NBA season:</b> 
 
-![](/images/nba_plots/2018-2019%20NBA%20Szn.png)
+![](/images/nba_plots/2018-2019_NBA_Szn.png)
 
 <b>What is the current 2018-2019 season takeaway?</b>
 * SAC is still efficient from the 3 point line and increased their field goal percentage from the court
@@ -120,22 +120,22 @@ So in this article for all the listed facet grid histograms the formatting is as
 Of the 32 games the Milwaukee Bucks have managed 42 or more total rebounds they’ve won 75% of those games or 26 games to be exact. The league’s average for team’s total rebounds is 43! This means it is more than probable for this team to increase their team rebounding
 Note the league FGA, FG and Milwaukee’s FGA, FG (MIL shoots 3 shots less than the league FGA but maintains to be within the league mean of FG with 39)
 
-![](/images/nba_plots/2017-2018%20MIL%20TRB.png)
+![](/images/nba_plots/2017-2018_MIL_TRB.png)
 
 MIL is currently second in the eastern conference with a 41-13 record. Last season, though MIL was able to produce decent stats they were the weakest in the league for total rebounds. It was noted when MIL was able to rebound they won 75% of those games. This season with MIL being second in the east and a likely eastern conference contender, they are the top total rebound team in the league. Of the 45 times MIL has been able to produce 43 or more total rebounds they’ve won 34 of those games or 79%. 
 
-![](/images/nba_plots/2018-2019%20MIL%20TRB.png)
+![](/images/nba_plots/2018-2019_MIL_TRB.png)
 
 ### Sacramento Kings and Ball Movement:
 Of the 47 times the Sacramento Kings have been able to produce 23 or more assists they’ve won 74% of those game (35 games to be exact)
 Though assists may not seem imperative to a team’s production, the defending champions Golden State Warriors led the league in assists with 29.3 which were one of the three outliers from the box plot. The other two outliers were the New Orleans Pelicans and the Philadelphia 76ers (both 2017-2018 playoff teams)
 
-![](/images/nba_plots/2017-2018%20SAC%20AST.png)
+![](/images/nba_plots/2017-2018_SAC_AST.png)
 
 When observing MIL assists, they only have a 60% increase in wins when producing over 22 assists (28 wins out of 46 games)
 Last season SAC won 74% of their games (24/34) when they had 23 or more assists (which was their mean assists last year). This year through 55 games that mean has increased to 25 assists over the current season. Of the 34 games SAC has been able to produce 25 or more assists, they’ve won 20 of those games or 58%. The assist increase is directly correlated to their FG% increase from 45 - 47% as an assist is only completed after a made FG. Of the 23 times SAC shot 45 or more percent on the court they’ve won 14 of those games or 60%. 
 
-![](/images/nba_plots/2017-2018%20SAC%20AST.png)
+![](/images/nba_plots/2017-2018_SAC_AST.png)
 
 Sacramento is currently 9th in the Western conference with a 29-23 record and they have two 2019 all-stars in De’Aron Fox and Buddy Hield. They’re a team to lookout for in the next few seasons and even for the second half of this year.
 
