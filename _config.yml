@@ -6,8 +6,8 @@
 # https://learn-the-web.algonquindesign.ca/topics/markdown-yaml-cheat-sheet/#yaml
 # https://learnxinyminutes.com/docs/yaml/
 
-title: ValueByError
-description: An easy to use blogging platform with support for Jupyter Notebooks.
+title: Value*By*Error
+description: notes from the margin of a data scientist
 github_username: dpendleton22
 # you can comment the below line out if your repo name is not different than your baseurl
 github_repo: "valuebyerror"
