@@ -4,7 +4,7 @@ layout: post
 description: Exploratory Data Analysis
 categories: [markdown]
 title: Exploratory Data Analysis
-image: ![](https://media.giphy.com/media/PaPvxVB5dD6py/giphy.gif)
+image: https://media.giphy.com/media/PaPvxVB5dD6py/giphy.gif
 ---
 # Exploratory Data Analysis
 
