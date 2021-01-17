@@ -1,3 +1,10 @@
+---
+toc: true
+layout: post
+description: Exploratory Data Analysis
+categories: [markdown]
+title: Exploratory Data Analysis
+---
 # Exploratory Data Analysis
 
 ### TL;DR
