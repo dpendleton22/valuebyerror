@@ -70,7 +70,7 @@ All basic stats in this article are on a team level but they can also be used to
 
 ### NBA 2017 - 2018 League Summary
 
-![](/images/nba_plots/2017-2018_NBA_Szn.png)
+![](https://github.com/dpendleton22/valuebyerror/images/nba_plots/2017-2018_NBA_Szn.png)
 
 <b>What is the take away from observing the 2017-2018 season overall?</b>
 * Though 40% does not initially sound great, having ~35-37% 3P% shooting is great for a team and <b>SAC was pretty efficient from the 3 point line last year</b>
@@ -81,7 +81,7 @@ All basic stats in this article are on a team level but they can also be used to
 
 <b>Now that we got a glance at last season, let's see how SAC and MIL are doing this current NBA season:</b> 
 
-![](/images/nba_plots/2018-2019_NBA_Szn.png)
+![](https://github.com/dpendleton22/valuebyerror/images/nba_plots/2018-2019_NBA_Szn.png)
 
 <b>What is the current 2018-2019 season takeaway?</b>
 * SAC is still efficient from the 3 point line and increased their field goal percentage from the court
