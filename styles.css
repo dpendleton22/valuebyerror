@@ -1,6 +1,6 @@
 .css-typing p {
   border-right: .15em solid orange;
-  font-family: "Courier";
+  font-family: 'Anonymous Pro', monospace;
   font-size: 20px;
   white-space: nowrap;
   overflow: hidden;
@@ -8,23 +8,23 @@
 .css-typing p:nth-child(1) {
   width: 7.5em;
   -webkit-animation: type 2s steps(40, end);
-  animation: type 1s steps(40, end);
+  animation: type 1.75s steps(40, end);
   -webkit-animation-fill-mode: forwards;
   animation-fill-mode: forwards;
 }
 
 .css-typing p:nth-child(2) {
-  width: 26em;
+  width: 25em;
   opacity: 0;
-  -webkit-animation: type2 2s steps(40, end);
-  animation: type2 2s steps(40, end);
+  -webkit-animation: type2 2s steps(40, end), blink .5s step-end infinite alternate;
+  animation: type2 3.5s steps(40, end), blink .5s step-end infinite alternate;
   -webkit-animation-delay: 2s;
   animation-delay: 2s;
   -webkit-animation-fill-mode: forwards;
   animation-fill-mode: forwards;
 }
 
-.css-typing p:nth-child(3) {
+/*.css-typing p:nth-child(3) {
   width: 7.3em;
   opacity: 0;
   -webkit-animation: type3 5s steps(20, end), blink .5s step-end infinite alternate;
@@ -33,7 +33,8 @@
   animation-delay: 4s;
   -webkit-animation-fill-mode: forwards;
   animation-fill-mode: forwards;
-}
+}*/
+
 
 @keyframes type {
   0% {
@@ -66,12 +67,8 @@
   1% {
     opacity: 1;
   }
-  99.9% {
-    border-right: .15em solid orange;
-  }
   100% {
     opacity: 1;
-    border: none;
   }
 }
 
@@ -82,16 +79,12 @@
   1% {
     opacity: 1;
   }
-  99.9% {
-    border-right: .15em solid orange;
-  }
   100% {
     opacity: 1;
-    border: none;
   }
 }
 
-@keyframes type3 {
+/*@keyframes type3 {
   0% {
     width: 0;
   }
@@ -112,5 +105,16 @@
   }
   100% {
     opacity: 1;
+  }
+}*/
+
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
+@-webkit-keyframes blink {
+  50% {
+    border-color: tranparent;
   }
 }
