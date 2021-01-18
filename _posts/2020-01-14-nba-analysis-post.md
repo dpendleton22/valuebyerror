@@ -6,7 +6,8 @@ categories: [data exploration, box plots, histograms, NBA]
 title: Exploratory Data Analysis
 image: https://media.giphy.com/media/PaPvxVB5dD6py/giphy.gif
 ---
-# Exploratory Data Analysis
+# Exploratory Data Analysis 
+Originally created: Feb 12, 2019
 
 ### TL;DR
 <p>
