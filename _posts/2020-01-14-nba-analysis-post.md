@@ -2,7 +2,7 @@
 toc: true
 layout: post
 description: Exploratory Data Analysis
-categories: [markdown]
+categories: [data exploration, box plots, histograms, NBA]
 title: Exploratory Data Analysis
 image: https://media.giphy.com/media/PaPvxVB5dD6py/giphy.gif
 ---
@@ -28,14 +28,14 @@ So who better than myself. My plan is to provide analytics for teams that intere
 There’s really no need to explain the Bucks as they have the Greek Freak, Giannis Antetokounmpo. This kid, yes I said kid (he was born in 1994!) is 6’11 and 245 lbs (sweet Jesus this kid is a freak). His time with he Bucks was eventually going to come and with LeBron leaving that time might be now. The Milwaukee Bucks (MIL) and Sacramento Kings (SAC) were initially selected from my knowledge of watching basketball over the years with no analytic knowledge to backup my initial selections. In an effort to support these claims, let’s do some exploratory analysis to backup my initial selections
 </p>
 
-## In this article I will show:
+### In this article I will show:
 * Two exploratory analysis plots, why and when to use them
 * Why my selections for SAC and MIL are valid numerically 
 * The conducive information that can be analyzed from exploratory data 
 
 Lets jump right into an imperative figure for summary detail, the box plot.
 
-### The box plot:
+### The box plot
 <i>What’s the jist?</i>
 * Observing the overall percentage distribution of the dataset will give useful insight of where the subject of interest lies especially when there is a benchmark 
 
@@ -49,7 +49,10 @@ Before we start getting jiggy with it, what are some things we already know abou
 
 So to answer this question we need the right type of plot to give us a quick glance of the entire NBA league over the season. This calls for a box plot summary of the stats we wish to view. A quick summary for those who dosed off during stats about box plots and when they’re useful. A box plot provides a graphical percentage summary of the distribution of the data. With this information in mind, I’m gonna guess GSW are at the top of a shooting percentage (FG and/or 3P). Knowing where the 2-time NBA champs sat gives us a benchmark to compare how SAC and MIL are with those same stats. 
 
-### Hold up, wait a minute:
+### Basketball Metrics
+
+<b>Hold up, wait a minute...</b>
+
 Before we jump stop into this box plot, lets take a quick euro step to learn about the various measured stats in this article. 
 
 ![](https://media.giphy.com/media/2mBBlZ682gMPdikKQo/giphy.gif)
@@ -70,7 +73,7 @@ All basic stats in this article are on a team level but they can also be used to
 
 ### NBA 2017 - 2018 League Summary
 
-![](/images/nba_plots/2017-2018_NBA_Szn.png)
+![NBA Season Summary]({{site.baseurl}}/images/nba_plots/2017-2018_NBA_Szn.png)
 
 <b>What is the take away from observing the 2017-2018 season overall?</b>
 * Though 40% does not initially sound great, having ~35-37% 3P% shooting is great for a team and <b>SAC was pretty efficient from the 3 point line last year</b>
@@ -78,10 +81,9 @@ All basic stats in this article are on a team level but they can also be used to
 * There is a wide range for the FT% but teams still averaged more than 70% for the season 
 * <b>MIL had the lowest total rebounds in the league</b>
 * <b>SAC was surprisingly efficient from the 3 point line</b>
-
 <b>Now that we got a glance at last season, let's see how SAC and MIL are doing this current NBA season:</b> 
 
-![](/images/nba_plots/2018-2019_NBA_Szn.png)
+![]({{site.baseurl}}/images/nba_plots/2018-2019_NBA_Szn.png){: .align-right}
 
 <b>What is the current 2018-2019 season takeaway?</b>
 * SAC is still efficient from the 3 point line and increased their field goal percentage from the court
@@ -111,31 +113,31 @@ The facet grid allows for the data to be sectioned or categorized based on speci
 So in this article for all the listed facet grid histograms the formatting is as follows: 
 
 * top left - home games that were won
-* bottom left - home games that were lost
-* top right, away games that were won
-* bottom right - away games that were lost. </i>
+* bottom left - away games that were won
+* top right, home games that were lost
+* bottom right - away games that were lost
 
-### Milwuakee Bucks and Rebounding:
+### Milwuakee Bucks and Rebounding
 
 Of the 32 games the Milwaukee Bucks have managed 42 or more total rebounds they’ve won 75% of those games or 26 games to be exact. The league’s average for team’s total rebounds is 43! This means it is more than probable for this team to increase their team rebounding
 Note the league FGA, FG and Milwaukee’s FGA, FG (MIL shoots 3 shots less than the league FGA but maintains to be within the league mean of FG with 39)
 
-![](/images/nba_plots/2017-2018_MIL_TRB.png)
+![]({{site.baseurl}}/images/nba_plots/2017-2018_MIL_TRB.png)
 
 MIL is currently second in the eastern conference with a 41-13 record. Last season, though MIL was able to produce decent stats they were the weakest in the league for total rebounds. It was noted when MIL was able to rebound they won 75% of those games. This season with MIL being second in the east and a likely eastern conference contender, they are the top total rebound team in the league. Of the 45 times MIL has been able to produce 43 or more total rebounds they’ve won 34 of those games or 79%. 
 
-![](/images/nba_plots/2018-2019_MIL_TRB.png)
+![]({{site.baseurl}}/images/nba_plots/2018-2019_MIL_TRB.png)
 
-### Sacramento Kings and Ball Movement:
+### Sacramento Kings and Ball Movement
 Of the 47 times the Sacramento Kings have been able to produce 23 or more assists they’ve won 74% of those game (35 games to be exact)
 Though assists may not seem imperative to a team’s production, the defending champions Golden State Warriors led the league in assists with 29.3 which were one of the three outliers from the box plot. The other two outliers were the New Orleans Pelicans and the Philadelphia 76ers (both 2017-2018 playoff teams)
 
-![](/images/nba_plots/2017-2018_SAC_AST.png)
+![]({{site.baseurl}}/images/nba_plots/2017-2018_SAC_AST.png)
 
 When observing MIL assists, they only have a 60% increase in wins when producing over 22 assists (28 wins out of 46 games)
 Last season SAC won 74% of their games (24/34) when they had 23 or more assists (which was their mean assists last year). This year through 55 games that mean has increased to 25 assists over the current season. Of the 34 games SAC has been able to produce 25 or more assists, they’ve won 20 of those games or 58%. The assist increase is directly correlated to their FG% increase from 45 - 47% as an assist is only completed after a made FG. Of the 23 times SAC shot 45 or more percent on the court they’ve won 14 of those games or 60%. 
 
-![](/images/nba_plots/2017-2018_SAC_AST.png)
+![]({{site.baseurl}}/images/nba_plots/2018-2019_SAC_AST.png)
 
 Sacramento is currently 9th in the Western conference with a 29-23 record and they have two 2019 all-stars in De’Aron Fox and Buddy Hield. They’re a team to lookout for in the next few seasons and even for the second half of this year.
 
