@@ -10,14 +10,14 @@
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="Exploratory Data Analysis" />
 <meta property="og:description" content="Exploratory Data Analysis" />
-<link rel="canonical" href="https://dpendleton22.github.io/valuebyerror/markdown/2020/01/14/nba-analysis-post.html" />
-<meta property="og:url" content="https://dpendleton22.github.io/valuebyerror/markdown/2020/01/14/nba-analysis-post.html" />
+<link rel="canonical" href="https://dpendleton22.github.io/valuebyerror/data%20exploration/box%20plots/histograms/nba/2020/01/14/nba-analysis-post.html" />
+<meta property="og:url" content="https://dpendleton22.github.io/valuebyerror/data%20exploration/box%20plots/histograms/nba/2020/01/14/nba-analysis-post.html" />
 <meta property="og:site_name" content="ValueByError" />
 <meta property="og:image" content="https://media.giphy.com/media/PaPvxVB5dD6py/giphy.gif" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2020-01-14T00:00:00-06:00" />
 <script type="application/ld+json">
-{"url":"https://dpendleton22.github.io/valuebyerror/markdown/2020/01/14/nba-analysis-post.html","@type":"BlogPosting","headline":"Exploratory Data Analysis","dateModified":"2020-01-14T00:00:00-06:00","datePublished":"2020-01-14T00:00:00-06:00","image":"https://media.giphy.com/media/PaPvxVB5dD6py/giphy.gif","mainEntityOfPage":{"@type":"WebPage","@id":"https://dpendleton22.github.io/valuebyerror/markdown/2020/01/14/nba-analysis-post.html"},"description":"Exploratory Data Analysis","@context":"https://schema.org"}</script>
+{"url":"https://dpendleton22.github.io/valuebyerror/data%20exploration/box%20plots/histograms/nba/2020/01/14/nba-analysis-post.html","@type":"BlogPosting","headline":"Exploratory Data Analysis","dateModified":"2020-01-14T00:00:00-06:00","datePublished":"2020-01-14T00:00:00-06:00","image":"https://media.giphy.com/media/PaPvxVB5dD6py/giphy.gif","mainEntityOfPage":{"@type":"WebPage","@id":"https://dpendleton22.github.io/valuebyerror/data%20exploration/box%20plots/histograms/nba/2020/01/14/nba-analysis-post.html"},"description":"Exploratory Data Analysis","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/valuebyerror/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://dpendleton22.github.io/valuebyerror/feed.xml" title="ValueByError" /><link rel="shortcut icon" type="image/x-icon" href="/valuebyerror/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
@@ -85,7 +85,16 @@ window.onload = wrap_img;
     
       <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
       
-        <a class="category-tags-link" href="/valuebyerror/categories/#markdown">markdown</a>
+        <a class="category-tags-link" href="/valuebyerror/categories/#data exploration">data exploration</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/valuebyerror/categories/#box plots">box plots</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/valuebyerror/categories/#histograms">histograms</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/valuebyerror/categories/#NBA">NBA</a>
         
       
       </p>
@@ -98,16 +107,13 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h1"><a href="#exploratory-data-analysis">Exploratory Data Analysis</a>
 <ul>
 <li class="toc-entry toc-h3"><a href="#tldr">TL;DR</a></li>
-<li class="toc-entry toc-h2"><a href="#in-this-article-i-will-show">In this article I will show:</a>
-<ul>
-<li class="toc-entry toc-h3"><a href="#the-box-plot">The box plot:</a></li>
-<li class="toc-entry toc-h3"><a href="#hold-up-wait-a-minute">Hold up, wait a minute:</a></li>
+<li class="toc-entry toc-h3"><a href="#in-this-article-i-will-show">In this article I will show:</a></li>
+<li class="toc-entry toc-h3"><a href="#the-box-plot">The box plot</a></li>
+<li class="toc-entry toc-h3"><a href="#basketball-metrics">Basketball Metrics</a></li>
 <li class="toc-entry toc-h3"><a href="#nba-2017---2018-league-summary">NBA 2017 - 2018 League Summary</a></li>
-<li class="toc-entry toc-h3"><a href="#milwuakee-bucks-and-rebounding">Milwuakee Bucks and Rebounding:</a></li>
-<li class="toc-entry toc-h3"><a href="#sacramento-kings-and-ball-movement">Sacramento Kings and Ball Movement:</a></li>
+<li class="toc-entry toc-h3"><a href="#milwuakee-bucks-and-rebounding">Milwuakee Bucks and Rebounding</a></li>
+<li class="toc-entry toc-h3"><a href="#sacramento-kings-and-ball-movement">Sacramento Kings and Ball Movement</a></li>
 <li class="toc-entry toc-h3"><a href="#the-jist">The Jist</a></li>
-</ul>
-</li>
 </ul>
 </li>
 </ul><h1 id="exploratory-data-analysis">
@@ -134,8 +140,8 @@ For quite some time I’ve been meaning to jump into the realm of sports analyti
 There’s really no need to explain the Bucks as they have the Greek Freak, Giannis Antetokounmpo. This kid, yes I said kid (he was born in 1994!) is 6’11 and 245 lbs (sweet Jesus this kid is a freak). His time with he Bucks was eventually going to come and with LeBron leaving that time might be now. The Milwaukee Bucks (MIL) and Sacramento Kings (SAC) were initially selected from my knowledge of watching basketball over the years with no analytic knowledge to backup my initial selections. In an effort to support these claims, let’s do some exploratory analysis to backup my initial selections
 </p>
 
-<h2 id="in-this-article-i-will-show">
-<a class="anchor" href="#in-this-article-i-will-show" aria-hidden="true"><span class="octicon octicon-link"></span></a>In this article I will show:</h2>
+<h3 id="in-this-article-i-will-show">
+<a class="anchor" href="#in-this-article-i-will-show" aria-hidden="true"><span class="octicon octicon-link"></span></a>In this article I will show:</h3>
 <ul>
   <li>Two exploratory analysis plots, why and when to use them</li>
   <li>Why my selections for SAC and MIL are valid numerically</li>
@@ -145,7 +151,7 @@ There’s really no need to explain the Bucks as they have the Greek Freak, Gian
 <p>Lets jump right into an imperative figure for summary detail, the box plot.</p>
 
 <h3 id="the-box-plot">
-<a class="anchor" href="#the-box-plot" aria-hidden="true"><span class="octicon octicon-link"></span></a>The box plot:</h3>
+<a class="anchor" href="#the-box-plot" aria-hidden="true"><span class="octicon octicon-link"></span></a>The box plot</h3>
 <p><i>What’s the jist?</i></p>
 <ul>
   <li>Observing the overall percentage distribution of the dataset will give useful insight of where the subject of interest lies especially when there is a benchmark</li>
@@ -161,8 +167,11 @@ Before we start getting jiggy with it, what are some things we already know abou
 
 <p>So to answer this question we need the right type of plot to give us a quick glance of the entire NBA league over the season. This calls for a box plot summary of the stats we wish to view. A quick summary for those who dosed off during stats about box plots and when they’re useful. A box plot provides a graphical percentage summary of the distribution of the data. With this information in mind, I’m gonna guess GSW are at the top of a shooting percentage (FG and/or 3P). Knowing where the 2-time NBA champs sat gives us a benchmark to compare how SAC and MIL are with those same stats.</p>
 
-<h3 id="hold-up-wait-a-minute">
-<a class="anchor" href="#hold-up-wait-a-minute" aria-hidden="true"><span class="octicon octicon-link"></span></a>Hold up, wait a minute:</h3>
+<h3 id="basketball-metrics">
+<a class="anchor" href="#basketball-metrics" aria-hidden="true"><span class="octicon octicon-link"></span></a>Basketball Metrics</h3>
+
+<p><b>Hold up, wait a minute…</b></p>
+
 <p>Before we jump stop into this box plot, lets take a quick euro step to learn about the various measured stats in this article.</p>
 
 <p><img src="https://media.giphy.com/media/2mBBlZ682gMPdikKQo/giphy.gif" alt=""></p>
@@ -194,7 +203,7 @@ Before we start getting jiggy with it, what are some things we already know abou
 <h3 id="nba-2017---2018-league-summary">
 <a class="anchor" href="#nba-2017---2018-league-summary" aria-hidden="true"><span class="octicon octicon-link"></span></a>NBA 2017 - 2018 League Summary</h3>
 
-<p><img src="/images/nba_plots/2017-2018_NBA_Szn.png%20=50x50" alt=""></p>
+<p><img src="/valuebyerror/images/nba_plots/2017-2018_NBA_Szn.png" alt="NBA Season Summary"></p>
 
 <p><b>What is the take away from observing the 2017-2018 season overall?</b></p>
 <ul>
@@ -203,12 +212,13 @@ Before we start getting jiggy with it, what are some things we already know abou
   <li>Teams usually average between 40 - 50 rebounds for a game with most of them being defensive rebounds</li>
   <li>There is a wide range for the FT% but teams still averaged more than 70% for the season</li>
   <li><b>MIL had the lowest total rebounds in the league</b></li>
-  <li><b>SAC was surprisingly efficient from the 3 point line</b></li>
+  <li>
+<b>SAC was surprisingly efficient from the 3 point line</b>
+<b>Now that we got a glance at last season, let’s see how SAC and MIL are doing this current NBA season:</b>
+</li>
 </ul>
 
-<p><b>Now that we got a glance at last season, let’s see how SAC and MIL are doing this current NBA season:</b></p>
-
-<p><img src="/images/nba_plots/2018-2019_NBA_Szn.png" alt=""></p>
+<p><img src="/valuebyerror/images/nba_plots/2018-2019_NBA_Szn.png" alt="" class="align-right"></p>
 
 <p><b>What is the current 2018-2019 season takeaway?</b></p>
 <ul>
@@ -243,34 +253,34 @@ Before we start getting jiggy with it, what are some things we already know abou
 
 <ul>
   <li>top left - home games that were won</li>
-  <li>bottom left - home games that were lost</li>
-  <li>top right, away games that were won</li>
-  <li>bottom right - away games that were lost. &lt;/i&gt;</li>
+  <li>bottom left - away games that were won</li>
+  <li>top right, home games that were lost</li>
+  <li>bottom right - away games that were lost</li>
 </ul>
 
 <h3 id="milwuakee-bucks-and-rebounding">
-<a class="anchor" href="#milwuakee-bucks-and-rebounding" aria-hidden="true"><span class="octicon octicon-link"></span></a>Milwuakee Bucks and Rebounding:</h3>
+<a class="anchor" href="#milwuakee-bucks-and-rebounding" aria-hidden="true"><span class="octicon octicon-link"></span></a>Milwuakee Bucks and Rebounding</h3>
 
 <p>Of the 32 games the Milwaukee Bucks have managed 42 or more total rebounds they’ve won 75% of those games or 26 games to be exact. The league’s average for team’s total rebounds is 43! This means it is more than probable for this team to increase their team rebounding
 Note the league FGA, FG and Milwaukee’s FGA, FG (MIL shoots 3 shots less than the league FGA but maintains to be within the league mean of FG with 39)</p>
 
-<p><img src="/images/nba_plots/2017-2018_MIL_TRB.png" alt=""></p>
+<p><img src="/valuebyerror/images/nba_plots/2017-2018_MIL_TRB.png" alt=""></p>
 
 <p>MIL is currently second in the eastern conference with a 41-13 record. Last season, though MIL was able to produce decent stats they were the weakest in the league for total rebounds. It was noted when MIL was able to rebound they won 75% of those games. This season with MIL being second in the east and a likely eastern conference contender, they are the top total rebound team in the league. Of the 45 times MIL has been able to produce 43 or more total rebounds they’ve won 34 of those games or 79%.</p>
 
-<p><img src="/images/nba_plots/2018-2019_MIL_TRB.png" alt=""></p>
+<p><img src="/valuebyerror/images/nba_plots/2018-2019_MIL_TRB.png" alt=""></p>
 
 <h3 id="sacramento-kings-and-ball-movement">
-<a class="anchor" href="#sacramento-kings-and-ball-movement" aria-hidden="true"><span class="octicon octicon-link"></span></a>Sacramento Kings and Ball Movement:</h3>
+<a class="anchor" href="#sacramento-kings-and-ball-movement" aria-hidden="true"><span class="octicon octicon-link"></span></a>Sacramento Kings and Ball Movement</h3>
 <p>Of the 47 times the Sacramento Kings have been able to produce 23 or more assists they’ve won 74% of those game (35 games to be exact)
 Though assists may not seem imperative to a team’s production, the defending champions Golden State Warriors led the league in assists with 29.3 which were one of the three outliers from the box plot. The other two outliers were the New Orleans Pelicans and the Philadelphia 76ers (both 2017-2018 playoff teams)</p>
 
-<p><img src="/images/nba_plots/2017-2018_SAC_AST.png" alt=""></p>
+<p><img src="/valuebyerror/images/nba_plots/2017-2018_SAC_AST.png" alt=""></p>
 
 <p>When observing MIL assists, they only have a 60% increase in wins when producing over 22 assists (28 wins out of 46 games)
 Last season SAC won 74% of their games (24/34) when they had 23 or more assists (which was their mean assists last year). This year through 55 games that mean has increased to 25 assists over the current season. Of the 34 games SAC has been able to produce 25 or more assists, they’ve won 20 of those games or 58%. The assist increase is directly correlated to their FG% increase from 45 - 47% as an assist is only completed after a made FG. Of the 23 times SAC shot 45 or more percent on the court they’ve won 14 of those games or 60%.</p>
 
-<p><img src="/images/nba_plots/2017-2018_SAC_AST.png%20=%2050x50" alt=""></p>
+<p><img src="/valuebyerror/images/nba_plots/2018-2019_SAC_AST.png" alt=""></p>
 
 <p>Sacramento is currently 9th in the Western conference with a 29-23 record and they have two 2019 all-stars in De’Aron Fox and Buddy Hield. They’re a team to lookout for in the next few seasons and even for the second half of this year.</p>
 
@@ -278,7 +288,7 @@ Last season SAC won 74% of their games (24/34) when they had 23 or more assists 
 <a class="anchor" href="#the-jist" aria-hidden="true"><span class="octicon octicon-link"></span></a>The Jist</h3>
 <p>Exploring and understanding these basic stats (BLK, AST, etc.) and how they are utilized with each team gives us a better understanding of what stats are important and to which teams. A box plot is useful to determine how well a team is competing compared to the league but in order to get a detail of overall performance a histogram is better. A team such as Sacramento, with a young future star point guard, they are expected to do better with ball movement and setting up efficient shots. Milwaukee having a number of tall and lanky players such as the Greek Freak, Thon Maker and Brook Lopez, they’re expected to not give second shot opportunities to their opponents by rebounding better. With this information we are able to select what tags are imperative in creating a predictive model for the second half of the season.</p>
 
-  </div><a class="u-url" href="/valuebyerror/markdown/2020/01/14/nba-analysis-post.html" hidden></a>
+  </div><a class="u-url" href="/valuebyerror/data%20exploration/box%20plots/histograms/nba/2020/01/14/nba-analysis-post.html" hidden></a>
 </article>
       </div>
     </main><footer class="site-footer h-card">
