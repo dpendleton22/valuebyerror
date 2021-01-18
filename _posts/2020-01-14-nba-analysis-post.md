@@ -70,7 +70,7 @@ All basic stats in this article are on a team level but they can also be used to
 
 ### NBA 2017 - 2018 League Summary
 
-![](https://github.com/dpendleton22/valuebyerror/images/nba_plots/2017-2018_NBA_Szn.png)
+![](/images/nba_plots/2017-2018_NBA_Szn.png =50x50)
 
 <b>What is the take away from observing the 2017-2018 season overall?</b>
 * Though 40% does not initially sound great, having ~35-37% 3P% shooting is great for a team and <b>SAC was pretty efficient from the 3 point line last year</b>
@@ -81,7 +81,7 @@ All basic stats in this article are on a team level but they can also be used to
 
 <b>Now that we got a glance at last season, let's see how SAC and MIL are doing this current NBA season:</b> 
 
-![](https://github.com/dpendleton22/valuebyerror/images/nba_plots/2018-2019_NBA_Szn.png)
+![](/images/nba_plots/2018-2019_NBA_Szn.png)
 
 <b>What is the current 2018-2019 season takeaway?</b>
 * SAC is still efficient from the 3 point line and increased their field goal percentage from the court
@@ -135,7 +135,7 @@ Though assists may not seem imperative to a team’s production, the defending c
 When observing MIL assists, they only have a 60% increase in wins when producing over 22 assists (28 wins out of 46 games)
 Last season SAC won 74% of their games (24/34) when they had 23 or more assists (which was their mean assists last year). This year through 55 games that mean has increased to 25 assists over the current season. Of the 34 games SAC has been able to produce 25 or more assists, they’ve won 20 of those games or 58%. The assist increase is directly correlated to their FG% increase from 45 - 47% as an assist is only completed after a made FG. Of the 23 times SAC shot 45 or more percent on the court they’ve won 14 of those games or 60%. 
 
-![](/images/nba_plots/2017-2018_SAC_AST.png)
+![](/images/nba_plots/2017-2018_SAC_AST.png = 50x50)
 
 Sacramento is currently 9th in the Western conference with a 29-23 record and they have two 2019 all-stars in De’Aron Fox and Buddy Hield. They’re a team to lookout for in the next few seasons and even for the second half of this year.
 
