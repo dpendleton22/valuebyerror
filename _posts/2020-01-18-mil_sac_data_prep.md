@@ -2,7 +2,7 @@
 keywords: fastai
 description: "It's not the sexiest part of data science but it is probably the most important"
 title: "Data Cleaning & Pipelines"
-toc: false
+toc: true
 branch: master
 badges: true
 comments: true
@@ -23,14 +23,30 @@ layout: notebook
         
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Goal:-Prepare-the-NBA-dataset-for-a-classification-model">Goal: Prepare the NBA dataset for a classification model<a class="anchor-link" href="#Goal:-Prepare-the-NBA-dataset-for-a-classification-model"> </a></h2><p>The data exploration post showed how to use knowledge about a dataset to interpret information. Since we know how the 2017-2019 seasons went for the Milwuakee Bucks and Sacramento Kings we can now plan out our machine learning problem. The machine learning model will attempt to predict the outcome of an NBA game before it actually occurs. We can start with using a logistic regression model to get a probabalistic output but we can look into other classification models after we give this one a go. This article outlines the most imperative portion of a machine learning project, outlining the problem and preparing the data.</p>
+<h2 id="The-Jist:-Data-Cleaning-is-critical-before-developing-a-model">The Jist: Data Cleaning is critical before developing a model<a class="anchor-link" href="#The-Jist:-Data-Cleaning-is-critical-before-developing-a-model"> </a></h2><p>The data exploration post showed how to use knowledge about a dataset to interpret information. Since we know how the 2017-2019 seasons went for the Milwuakee Bucks and Sacramento Kings we can now plan out our machine learning problem. The machine learning model will attempt to predict the outcome of an NBA game before it actually occurs. We can start with using a logistic regression model to get a probabalistic output but we can look into other classification models after we give this one a go. This article outlines the most imperative portion of a machine learning project, outlining the problem and preparing the data.</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Set-all-the-necessary-paths-for-the-data">Set all the necessary paths for the data<a class="anchor-link" href="#Set-all-the-necessary-paths-for-the-data"> </a></h3><p>The data was provided by <a href="https://www.basketball-reference.com/">https://www.basketball-reference.com/</a>. They are a great source for anyone interested in sports analytics as an intial introduction. I can go into details later within the project to note the importance of detail in sports data</p>
+<h3 id="Part-1:-Data-Exploration">Part 1: Data Exploration<a class="anchor-link" href="#Part-1:-Data-Exploration"> </a></h3><p>This post is a continuation of the data exploration post where we explored the 2017-2019 seasons for the Milwuakee Bucks and the Sacramento Kings. Feel free to hop out and pop back in if you want to see the data described and explored:</p>
+<p><a href="https://dpendleton22.github.io/valuebyerror/data%20exploration/box%20plots/histograms/nba/2020/01/14/nba-analysis-post.html">Part 1 post: Data Exporlation with NBA Data</a></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="https://media.giphy.com/media/Ze4BXdrjDjygM9Piq0/giphy.gif" alt="KeepItMoving"></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Set-all-the-necessary-paths-for-the-data">Set all the necessary paths for the data<a class="anchor-link" href="#Set-all-the-necessary-paths-for-the-data"> </a></h3><p>The data was provided by <a href="https://www.basketball-reference.com/">https://www.basketball-reference.com/</a>. They are a great source for anyone interested in sports analytics as an intial introduction. I can go into details later within the project to note the importance of detail in sports data.</p>
+<p>Using the <i>pathlib</i> library from pandas it's straightforward getting all the data file names set. Setting a base folder name is a good method to simply call each dataset path by their name. Another method to get each dataset path would be to use the <i>glob</i> library to search the dataset folder for files with csv extensions</p>
 
 </div>
 </div>
@@ -38,28 +54,14 @@ layout: notebook
     {% raw %}
     
 <div class="cell border-box-sizing code_cell rendered">
-<div class="input">
+<details class="description">
+      <summary class="btn btn-sm" data-open="Hide Code" data-close="Show Code"></summary>
+        <p><div class="input">
 
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">DATA_FOLDER</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">(),</span> <span class="s1">&#39;mil_sac_data&#39;</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-    {% endraw %}
-
-    {% raw %}
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sac_2017_szn</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">DATA_FOLDER</span><span class="p">,</span> <span class="s1">&#39;sac_2017_2018_szn.csv&#39;</span><span class="p">)</span>
+<span class="n">sac_2017_szn</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">DATA_FOLDER</span><span class="p">,</span> <span class="s1">&#39;sac_2017_2018_szn.csv&#39;</span><span class="p">)</span>
 <span class="n">sac_2018_szn</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">DATA_FOLDER</span><span class="p">,</span> <span class="s1">&#39;sac_2018_2019_szn.csv&#39;</span><span class="p">)</span>
 <span class="n">mil_2017_szn</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">DATA_FOLDER</span><span class="p">,</span> <span class="s1">&#39;mil_2017_2018_szn.csv&#39;</span><span class="p">)</span>
 <span class="n">mil_2018_szn</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">DATA_FOLDER</span><span class="p">,</span> <span class="s1">&#39;mil_2018_2019_szn.csv&#39;</span><span class="p">)</span>
@@ -68,10 +70,18 @@ layout: notebook
     </div>
 </div>
 </div>
-
+</p>
+    </details>
 </div>
     {% endraw %}
 
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Let's review one of the datasets to determine how they all need to be cleaned</p>
+
+</div>
+</div>
+</div>
     {% raw %}
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -89,20 +99,31 @@ layout: notebook
 </div>
     {% endraw %}
 
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Hold-up,-why-are-you-setting-the-header-argument?">Hold up, why are you setting the header argument?<a class="anchor-link" href="#Hold-up,-why-are-you-setting-the-header-argument?"> </a></h3><p>Most times than not, calling pd.read_csv("filename") with no additional arguments would read in a dataframe as expected. In this instance, BasketballReference provides two headers in their csv so we need to let pandas know in order to process the dataset. Pandas read_csv() function has over 20 arguments that can be set depending on how the data is parsed and organized in the original file. So if your data is a little funky, the function may still be able to handle it.</p>
+<p>Pandas read_csv() documentation: <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_csv.html">pandas.read_csv()</a></p>
+
+</div>
+</div>
+</div>
     {% raw %}
     
 <div class="cell border-box-sizing code_cell rendered">
-<div class="input">
+<details class="description" open>
+      <summary class="btn btn-sm" data-open="Hide Code" data-close="Show Code"></summary>
+        <p><div class="input">
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sac_2017_df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sac_2017_df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">15</span><span class="p">]</span>
 </pre></div>
 
     </div>
 </div>
 </div>
-
+</p>
+    </details>
 <div class="output_wrapper">
 <div class="output">
 
@@ -136,9 +157,7 @@ layout: notebook
       <th>Unnamed: 5_level_0</th>
       <th>Unnamed: 6_level_0</th>
       <th>Unnamed: 7_level_0</th>
-      <th colspan="2" halign="left">Team</th>
-      <th>...</th>
-      <th colspan="10" halign="left">Opponent</th>
+      <th colspan="7" halign="left">Team</th>
     </tr>
     <tr>
       <th></th>
@@ -152,17 +171,11 @@ layout: notebook
       <th>Opp</th>
       <th>FG</th>
       <th>FGA</th>
-      <th>...</th>
+      <th>FG%</th>
+      <th>3P</th>
+      <th>3PA</th>
+      <th>3P%</th>
       <th>FT</th>
-      <th>FTA</th>
-      <th>FT%</th>
-      <th>ORB</th>
-      <th>TRB</th>
-      <th>AST</th>
-      <th>STL</th>
-      <th>BLK</th>
-      <th>TOV</th>
-      <th>PF</th>
     </tr>
   </thead>
   <tbody>
@@ -178,17 +191,11 @@ layout: notebook
       <td>105</td>
       <td>42</td>
       <td>88</td>
-      <td>...</td>
-      <td>27</td>
-      <td>29</td>
-      <td>0.931</td>
-      <td>12</td>
-      <td>44</td>
-      <td>19</td>
-      <td>7</td>
-      <td>3</td>
-      <td>14</td>
-      <td>14</td>
+      <td>0.477</td>
+      <td>8</td>
+      <td>23</td>
+      <td>0.348</td>
+      <td>8</td>
     </tr>
     <tr>
       <th>1</th>
@@ -202,17 +209,11 @@ layout: notebook
       <td>88</td>
       <td>37</td>
       <td>87</td>
-      <td>...</td>
-      <td>15</td>
-      <td>21</td>
-      <td>0.714</td>
-      <td>7</td>
-      <td>36</td>
-      <td>19</td>
-      <td>8</td>
-      <td>7</td>
-      <td>12</td>
-      <td>13</td>
+      <td>0.425</td>
+      <td>10</td>
+      <td>23</td>
+      <td>0.435</td>
+      <td>9</td>
     </tr>
     <tr>
       <th>2</th>
@@ -226,17 +227,11 @@ layout: notebook
       <td>96</td>
       <td>31</td>
       <td>85</td>
-      <td>...</td>
-      <td>12</td>
-      <td>20</td>
-      <td>0.600</td>
-      <td>18</td>
-      <td>58</td>
-      <td>25</td>
-      <td>7</td>
-      <td>2</td>
-      <td>16</td>
-      <td>19</td>
+      <td>0.365</td>
+      <td>8</td>
+      <td>22</td>
+      <td>0.364</td>
+      <td>9</td>
     </tr>
     <tr>
       <th>3</th>
@@ -250,17 +245,11 @@ layout: notebook
       <td>117</td>
       <td>43</td>
       <td>99</td>
-      <td>...</td>
-      <td>23</td>
-      <td>27</td>
-      <td>0.852</td>
-      <td>6</td>
-      <td>45</td>
+      <td>0.434</td>
+      <td>9</td>
+      <td>22</td>
+      <td>0.409</td>
       <td>20</td>
-      <td>6</td>
-      <td>5</td>
-      <td>20</td>
-      <td>25</td>
     </tr>
     <tr>
       <th>4</th>
@@ -274,21 +263,14 @@ layout: notebook
       <td>114</td>
       <td>38</td>
       <td>81</td>
-      <td>...</td>
-      <td>17</td>
+      <td>0.469</td>
+      <td>7</td>
+      <td>20</td>
+      <td>0.350</td>
       <td>23</td>
-      <td>0.739</td>
-      <td>10</td>
-      <td>47</td>
-      <td>22</td>
-      <td>5</td>
-      <td>3</td>
-      <td>15</td>
-      <td>24</td>
     </tr>
   </tbody>
 </table>
-<p>5 rows × 41 columns</p>
 </div>
 </div>
 
@@ -302,7 +284,7 @@ layout: notebook
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Merge-the-multi-index-headers-and-remove-the-&quot;Unnamed:-&quot;-tags-within-the-column-of-the-df">Merge the multi index headers and remove the "Unnamed: " tags within the column of the df<a class="anchor-link" href="#Merge-the-multi-index-headers-and-remove-the-&quot;Unnamed:-&quot;-tags-within-the-column-of-the-df"> </a></h3><p>Using regular expressions, the "Unnmaed: " tags can be removed from the columns</p>
+<p>{% include tip.html content='Always view the dimensions of your data before analyzing it' %}</p>
 
 </div>
 </div>
@@ -314,7 +296,388 @@ layout: notebook
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">test</span> <span class="o">=</span> <span class="n">sac_2017_df</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">)</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span> <span class="p">(</span><span class="sa">f</span><span class="s2">&quot;This dataset is </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">sac_2017_df</span><span class="p">)</span><span class="si">}</span><span class="s2"> in length and contains </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">sac_2017_df</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span><span class="si">}</span><span class="s2"> columns&quot;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>This dataset is 82 in length and contains 41 columns
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Using df.describe() is an easy and useful way to breifly view the distribution of the dataset across all the columns. This dataset is 82 rows in length which makes sense because there are 82 games in a regular season and contains 41 columns</p>
+
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<details class="description">
+      <summary class="btn btn-sm" data-open="Hide Code" data-close="Show Code"></summary>
+        <p><div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sac_2017_df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">15</span><span class="p">]</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+</p>
+    </details>
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead tr th {
+        text-align: left;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Unnamed: 0_level_0</th>
+      <th>Unnamed: 1_level_0</th>
+      <th>Unnamed: 6_level_0</th>
+      <th>Unnamed: 7_level_0</th>
+      <th colspan="7" halign="left">Team</th>
+    </tr>
+    <tr>
+      <th></th>
+      <th>Rk</th>
+      <th>G</th>
+      <th>Tm</th>
+      <th>Opp</th>
+      <th>FG</th>
+      <th>FGA</th>
+      <th>FG%</th>
+      <th>3P</th>
+      <th>3PA</th>
+      <th>3P%</th>
+      <th>FT</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>5.000000</td>
+      <td>5.000000</td>
+      <td>5.000000</td>
+      <td>5.000000</td>
+      <td>5.000000</td>
+      <td>5.000000</td>
+      <td>5.000000</td>
+      <td>5.000000</td>
+      <td>5.000000</td>
+      <td>5.000000</td>
+      <td>5.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>3.000000</td>
+      <td>3.000000</td>
+      <td>98.600000</td>
+      <td>104.000000</td>
+      <td>38.200000</td>
+      <td>88.000000</td>
+      <td>0.434000</td>
+      <td>8.400000</td>
+      <td>22.000000</td>
+      <td>0.381200</td>
+      <td>13.800000</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>1.581139</td>
+      <td>1.581139</td>
+      <td>13.612494</td>
+      <td>12.144958</td>
+      <td>4.764452</td>
+      <td>6.708204</td>
+      <td>0.044486</td>
+      <td>1.140175</td>
+      <td>1.224745</td>
+      <td>0.038855</td>
+      <td>7.120393</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>79.000000</td>
+      <td>88.000000</td>
+      <td>31.000000</td>
+      <td>81.000000</td>
+      <td>0.365000</td>
+      <td>7.000000</td>
+      <td>20.000000</td>
+      <td>0.348000</td>
+      <td>8.000000</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>2.000000</td>
+      <td>2.000000</td>
+      <td>93.000000</td>
+      <td>96.000000</td>
+      <td>37.000000</td>
+      <td>85.000000</td>
+      <td>0.425000</td>
+      <td>8.000000</td>
+      <td>22.000000</td>
+      <td>0.350000</td>
+      <td>9.000000</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>3.000000</td>
+      <td>3.000000</td>
+      <td>100.000000</td>
+      <td>105.000000</td>
+      <td>38.000000</td>
+      <td>87.000000</td>
+      <td>0.434000</td>
+      <td>8.000000</td>
+      <td>22.000000</td>
+      <td>0.364000</td>
+      <td>9.000000</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>4.000000</td>
+      <td>4.000000</td>
+      <td>106.000000</td>
+      <td>114.000000</td>
+      <td>42.000000</td>
+      <td>88.000000</td>
+      <td>0.469000</td>
+      <td>9.000000</td>
+      <td>23.000000</td>
+      <td>0.409000</td>
+      <td>20.000000</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>5.000000</td>
+      <td>5.000000</td>
+      <td>115.000000</td>
+      <td>117.000000</td>
+      <td>43.000000</td>
+      <td>99.000000</td>
+      <td>0.477000</td>
+      <td>10.000000</td>
+      <td>23.000000</td>
+      <td>0.435000</td>
+      <td>23.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Merge-multi-index-headers-and-remove-unwanted-tags">Merge multi index headers and remove unwanted tags<a class="anchor-link" href="#Merge-multi-index-headers-and-remove-unwanted-tags"> </a></h3><p>In stead of indexing by columns with this notation,</p>
+<div class="highlight"><pre><span></span><span class="n">sac_2017_df</span><span class="p">[(</span><span class="s1">&#39;Unnamed: 0_level_0&#39;</span><span class="p">,</span> <span class="s1">&#39;Rk&#39;</span><span class="p">)]</span>
+</pre></div>
+<p>we need to merge the header columns to allow for this type of indexing</p>
+<div class="highlight"><pre><span></span><span class="n">sac_2017_df</span><span class="p">[</span><span class="s1">&#39;Rk&#39;</span><span class="p">]</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Lets do a quick magic wave of the hand and merge these headers together</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Before:</p>
+
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sac_2017_df</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">5</span><span class="p">:</span><span class="mi">15</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>MultiIndex([(&#39;Unnamed: 5_level_0&#39;, &#39;W/L&#39;),
+            (&#39;Unnamed: 6_level_0&#39;,  &#39;Tm&#39;),
+            (&#39;Unnamed: 7_level_0&#39;, &#39;Opp&#39;),
+            (              &#39;Team&#39;,  &#39;FG&#39;),
+            (              &#39;Team&#39;, &#39;FGA&#39;),
+            (              &#39;Team&#39;, &#39;FG%&#39;),
+            (              &#39;Team&#39;,  &#39;3P&#39;),
+            (              &#39;Team&#39;, &#39;3PA&#39;),
+            (              &#39;Team&#39;, &#39;3P%&#39;),
+            (              &#39;Team&#39;,  &#39;FT&#39;)],
+           )</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">merged_columns</span> <span class="o">=</span> <span class="n">sac_2017_df</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="https://media.giphy.com/media/NmerZ36iBkmKk/giphy.gif" alt="merging"></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>After:</p>
+
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<details class="description">
+      <summary class="btn btn-sm" data-open="Hide Code" data-close="Show Code"></summary>
+        <p><div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">merged_columns</span><span class="p">[</span><span class="mi">5</span><span class="p">:</span><span class="mi">15</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+</p>
+    </details>
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>Index([&#39;Unnamed: 5_level_0.W/L&#39;, &#39;Unnamed: 6_level_0.Tm&#39;,
+       &#39;Unnamed: 7_level_0.Opp&#39;, &#39;Team.FG&#39;, &#39;Team.FGA&#39;, &#39;Team.FG%&#39;, &#39;Team.3P&#39;,
+       &#39;Team.3PA&#39;, &#39;Team.3P%&#39;, &#39;Team.FT&#39;],
+      dtype=&#39;object&#39;)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>{% include note.html content='Lets break that piece of code above down for a sec: <b>sac_2017_df.columns.map(&#8217;.&#8217;.join)</b> is calling the <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.str.join.html">str.join()</a> function where the str is &#8217;.&#8217; for each column with the <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.map.html">.map()</a> function' %}</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Now with the columns merged, we can keep the prefixed descriptions such as Team and Opponent so we know whose stats we're viewing but prefixes like 'Unnamed: 0_level_0' are no use to us.</p>
+<p>We can use regular expressions to remove the unneeded text in some of our column names</p>
+
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sac_2017_df</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="n">merged_columns</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;Unnamed:\ [0-9]_level_[0-9].&quot;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">regex</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -331,24 +694,7 @@ layout: notebook
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sac_2017_df</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="n">test</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;Unnamed:\ [0-9]_level_[0-9].&quot;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">regex</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-    {% endraw %}
-
-    {% raw %}
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sac_2017_df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sac_2017_df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">15</span><span class="p">]</span>
 </pre></div>
 
     </div>
@@ -390,17 +736,11 @@ layout: notebook
       <th>Opp</th>
       <th>Team.FG</th>
       <th>Team.FGA</th>
-      <th>...</th>
-      <th>Opponent.FT</th>
-      <th>Opponent.FTA</th>
-      <th>Opponent.FT%</th>
-      <th>Opponent.ORB</th>
-      <th>Opponent.TRB</th>
-      <th>Opponent.AST</th>
-      <th>Opponent.STL</th>
-      <th>Opponent.BLK</th>
-      <th>Opponent.TOV</th>
-      <th>Opponent.PF</th>
+      <th>Team.FG%</th>
+      <th>Team.3P</th>
+      <th>Team.3PA</th>
+      <th>Team.3P%</th>
+      <th>Team.FT</th>
     </tr>
   </thead>
   <tbody>
@@ -416,17 +756,11 @@ layout: notebook
       <td>105</td>
       <td>42</td>
       <td>88</td>
-      <td>...</td>
-      <td>27</td>
-      <td>29</td>
-      <td>0.931</td>
-      <td>12</td>
-      <td>44</td>
-      <td>19</td>
-      <td>7</td>
-      <td>3</td>
-      <td>14</td>
-      <td>14</td>
+      <td>0.477</td>
+      <td>8</td>
+      <td>23</td>
+      <td>0.348</td>
+      <td>8</td>
     </tr>
     <tr>
       <th>1</th>
@@ -440,17 +774,11 @@ layout: notebook
       <td>88</td>
       <td>37</td>
       <td>87</td>
-      <td>...</td>
-      <td>15</td>
-      <td>21</td>
-      <td>0.714</td>
-      <td>7</td>
-      <td>36</td>
-      <td>19</td>
-      <td>8</td>
-      <td>7</td>
-      <td>12</td>
-      <td>13</td>
+      <td>0.425</td>
+      <td>10</td>
+      <td>23</td>
+      <td>0.435</td>
+      <td>9</td>
     </tr>
     <tr>
       <th>2</th>
@@ -464,17 +792,11 @@ layout: notebook
       <td>96</td>
       <td>31</td>
       <td>85</td>
-      <td>...</td>
-      <td>12</td>
-      <td>20</td>
-      <td>0.600</td>
-      <td>18</td>
-      <td>58</td>
-      <td>25</td>
-      <td>7</td>
-      <td>2</td>
-      <td>16</td>
-      <td>19</td>
+      <td>0.365</td>
+      <td>8</td>
+      <td>22</td>
+      <td>0.364</td>
+      <td>9</td>
     </tr>
     <tr>
       <th>3</th>
@@ -488,17 +810,11 @@ layout: notebook
       <td>117</td>
       <td>43</td>
       <td>99</td>
-      <td>...</td>
-      <td>23</td>
-      <td>27</td>
-      <td>0.852</td>
-      <td>6</td>
-      <td>45</td>
+      <td>0.434</td>
+      <td>9</td>
+      <td>22</td>
+      <td>0.409</td>
       <td>20</td>
-      <td>6</td>
-      <td>5</td>
-      <td>20</td>
-      <td>25</td>
     </tr>
     <tr>
       <th>4</th>
@@ -512,21 +828,14 @@ layout: notebook
       <td>114</td>
       <td>38</td>
       <td>81</td>
-      <td>...</td>
-      <td>17</td>
+      <td>0.469</td>
+      <td>7</td>
+      <td>20</td>
+      <td>0.350</td>
       <td>23</td>
-      <td>0.739</td>
-      <td>10</td>
-      <td>47</td>
-      <td>22</td>
-      <td>5</td>
-      <td>3</td>
-      <td>15</td>
-      <td>24</td>
     </tr>
   </tbody>
 </table>
-<p>5 rows × 41 columns</p>
 </div>
 </div>
 
@@ -565,7 +874,7 @@ layout: notebook
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Now that we have our column we can simply drop the existing "Unnamed: 3_level_1" column because "playing_home" represents the same thing now</p>
+<p>Now that we have our column we can simply drop the existing "Unnamed: 3_level_1" column because "playing_home" represents the same thing now but with true and false values</p>
 
 </div>
 </div>
@@ -594,7 +903,7 @@ layout: notebook
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sac_2017_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sac_2017_df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">15</span><span class="p">]</span>
 </pre></div>
 
     </div>
@@ -629,6 +938,7 @@ layout: notebook
       <th>Rk</th>
       <th>G</th>
       <th>Date</th>
+      <th>Unnamed: 3_level_1</th>
       <th>Opp</th>
       <th>W/L</th>
       <th>Tm</th>
@@ -636,17 +946,10 @@ layout: notebook
       <th>Team.FG</th>
       <th>Team.FGA</th>
       <th>Team.FG%</th>
-      <th>...</th>
-      <th>Opponent.FTA</th>
-      <th>Opponent.FT%</th>
-      <th>Opponent.ORB</th>
-      <th>Opponent.TRB</th>
-      <th>Opponent.AST</th>
-      <th>Opponent.STL</th>
-      <th>Opponent.BLK</th>
-      <th>Opponent.TOV</th>
-      <th>Opponent.PF</th>
-      <th>playing_home</th>
+      <th>Team.3P</th>
+      <th>Team.3PA</th>
+      <th>Team.3P%</th>
+      <th>Team.FT</th>
     </tr>
   </thead>
   <tbody>
@@ -655,6 +958,7 @@ layout: notebook
       <td>1</td>
       <td>1</td>
       <td>2017-10-18</td>
+      <td>NaN</td>
       <td>HOU</td>
       <td>L</td>
       <td>100</td>
@@ -662,23 +966,17 @@ layout: notebook
       <td>42</td>
       <td>88</td>
       <td>0.477</td>
-      <td>...</td>
-      <td>29</td>
-      <td>0.931</td>
-      <td>12</td>
-      <td>44</td>
-      <td>19</td>
-      <td>7</td>
-      <td>3</td>
-      <td>14</td>
-      <td>14</td>
-      <td>True</td>
+      <td>8</td>
+      <td>23</td>
+      <td>0.348</td>
+      <td>8</td>
     </tr>
     <tr>
       <th>1</th>
       <td>2</td>
       <td>2</td>
       <td>2017-10-20</td>
+      <td>@</td>
       <td>DAL</td>
       <td>W</td>
       <td>93</td>
@@ -686,23 +984,17 @@ layout: notebook
       <td>37</td>
       <td>87</td>
       <td>0.425</td>
-      <td>...</td>
-      <td>21</td>
-      <td>0.714</td>
-      <td>7</td>
-      <td>36</td>
-      <td>19</td>
-      <td>8</td>
-      <td>7</td>
-      <td>12</td>
-      <td>13</td>
-      <td>False</td>
+      <td>10</td>
+      <td>23</td>
+      <td>0.435</td>
+      <td>9</td>
     </tr>
     <tr>
       <th>2</th>
       <td>3</td>
       <td>3</td>
       <td>2017-10-21</td>
+      <td>@</td>
       <td>DEN</td>
       <td>L</td>
       <td>79</td>
@@ -710,23 +1002,17 @@ layout: notebook
       <td>31</td>
       <td>85</td>
       <td>0.365</td>
-      <td>...</td>
-      <td>20</td>
-      <td>0.600</td>
-      <td>18</td>
-      <td>58</td>
-      <td>25</td>
-      <td>7</td>
-      <td>2</td>
-      <td>16</td>
-      <td>19</td>
-      <td>False</td>
+      <td>8</td>
+      <td>22</td>
+      <td>0.364</td>
+      <td>9</td>
     </tr>
     <tr>
       <th>3</th>
       <td>4</td>
       <td>4</td>
       <td>2017-10-23</td>
+      <td>@</td>
       <td>PHO</td>
       <td>L</td>
       <td>115</td>
@@ -734,23 +1020,17 @@ layout: notebook
       <td>43</td>
       <td>99</td>
       <td>0.434</td>
-      <td>...</td>
-      <td>27</td>
-      <td>0.852</td>
-      <td>6</td>
-      <td>45</td>
+      <td>9</td>
+      <td>22</td>
+      <td>0.409</td>
       <td>20</td>
-      <td>6</td>
-      <td>5</td>
-      <td>20</td>
-      <td>25</td>
-      <td>False</td>
     </tr>
     <tr>
       <th>4</th>
       <td>5</td>
       <td>5</td>
       <td>2017-10-26</td>
+      <td>NaN</td>
       <td>NOP</td>
       <td>L</td>
       <td>106</td>
@@ -758,21 +1038,13 @@ layout: notebook
       <td>38</td>
       <td>81</td>
       <td>0.469</td>
-      <td>...</td>
+      <td>7</td>
+      <td>20</td>
+      <td>0.350</td>
       <td>23</td>
-      <td>0.739</td>
-      <td>10</td>
-      <td>47</td>
-      <td>22</td>
-      <td>5</td>
-      <td>3</td>
-      <td>15</td>
-      <td>24</td>
-      <td>True</td>
     </tr>
   </tbody>
 </table>
-<p>5 rows × 41 columns</p>
 </div>
 </div>
 
@@ -808,6 +1080,14 @@ layout: notebook
 </div>
     {% endraw %}
 
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>True values in this new column represent the team of interest got the dub or the Wu as Mastah Killah would say #WuTang #ATLUnited
+<img src="https://media.giphy.com/media/2sceLbzj36eSxvcsYo/giphy.gif" alt="Wu"></p>
+
+</div>
+</div>
+</div>
     {% raw %}
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -815,7 +1095,7 @@ layout: notebook
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sac_2017_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sac_2017_df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mi">10</span><span class="p">:]</span>
 </pre></div>
 
     </div>
@@ -847,17 +1127,7 @@ layout: notebook
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>Rk</th>
-      <th>G</th>
-      <th>Date</th>
-      <th>Opp</th>
-      <th>W/L</th>
-      <th>Tm</th>
-      <th>Opp</th>
-      <th>Team.FG</th>
-      <th>Team.FGA</th>
-      <th>Team.FG%</th>
-      <th>...</th>
+      <th>Opponent.FTA</th>
       <th>Opponent.FT%</th>
       <th>Opponent.ORB</th>
       <th>Opponent.TRB</th>
@@ -866,24 +1136,13 @@ layout: notebook
       <th>Opponent.BLK</th>
       <th>Opponent.TOV</th>
       <th>Opponent.PF</th>
-      <th>playing_home</th>
       <th>dub</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>0</th>
-      <td>1</td>
-      <td>1</td>
-      <td>2017-10-18</td>
-      <td>HOU</td>
-      <td>L</td>
-      <td>100</td>
-      <td>105</td>
-      <td>42</td>
-      <td>88</td>
-      <td>0.477</td>
-      <td>...</td>
+      <td>29</td>
       <td>0.931</td>
       <td>12</td>
       <td>44</td>
@@ -892,22 +1151,11 @@ layout: notebook
       <td>3</td>
       <td>14</td>
       <td>14</td>
-      <td>True</td>
       <td>False</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>2</td>
-      <td>2</td>
-      <td>2017-10-20</td>
-      <td>DAL</td>
-      <td>W</td>
-      <td>93</td>
-      <td>88</td>
-      <td>37</td>
-      <td>87</td>
-      <td>0.425</td>
-      <td>...</td>
+      <td>21</td>
       <td>0.714</td>
       <td>7</td>
       <td>36</td>
@@ -916,22 +1164,11 @@ layout: notebook
       <td>7</td>
       <td>12</td>
       <td>13</td>
-      <td>False</td>
       <td>True</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>3</td>
-      <td>3</td>
-      <td>2017-10-21</td>
-      <td>DEN</td>
-      <td>L</td>
-      <td>79</td>
-      <td>96</td>
-      <td>31</td>
-      <td>85</td>
-      <td>0.365</td>
-      <td>...</td>
+      <td>20</td>
       <td>0.600</td>
       <td>18</td>
       <td>58</td>
@@ -941,21 +1178,10 @@ layout: notebook
       <td>16</td>
       <td>19</td>
       <td>False</td>
-      <td>False</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>4</td>
-      <td>4</td>
-      <td>2017-10-23</td>
-      <td>PHO</td>
-      <td>L</td>
-      <td>115</td>
-      <td>117</td>
-      <td>43</td>
-      <td>99</td>
-      <td>0.434</td>
-      <td>...</td>
+      <td>27</td>
       <td>0.852</td>
       <td>6</td>
       <td>45</td>
@@ -965,21 +1191,10 @@ layout: notebook
       <td>20</td>
       <td>25</td>
       <td>False</td>
-      <td>False</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>5</td>
-      <td>5</td>
-      <td>2017-10-26</td>
-      <td>NOP</td>
-      <td>L</td>
-      <td>106</td>
-      <td>114</td>
-      <td>38</td>
-      <td>81</td>
-      <td>0.469</td>
-      <td>...</td>
+      <td>23</td>
       <td>0.739</td>
       <td>10</td>
       <td>47</td>
@@ -988,12 +1203,10 @@ layout: notebook
       <td>3</td>
       <td>15</td>
       <td>24</td>
-      <td>True</td>
       <td>False</td>
     </tr>
   </tbody>
 </table>
-<p>5 rows × 42 columns</p>
 </div>
 </div>
 
@@ -1007,8 +1220,8 @@ layout: notebook
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Might-as-well-make-a-pipeline">Might as well make a pipeline<a class="anchor-link" href="#Might-as-well-make-a-pipeline"> </a></h3><p>We have established, at least, our firsy pass at preparing the dataset. Since we will have to prepare the other dataframes in a similar way we can mitgate this by create a data pipeline. This pipeline will take each original dataframe in and run the same preprocessing steps. This ensures everything is going through the same steps. Pipelines are not required but it will help you to stay organized</p>
-<p>To make a pipeline we'll need to make the previous steps we created into functions to pass each dataframe through</p>
+<h3 id="Might-as-well-make-a-pipeline">Might as well make a pipeline<a class="anchor-link" href="#Might-as-well-make-a-pipeline"> </a></h3><p>We have established, at least, our first pass at preparing the dataset. Since we will have to prepare the other dataframes in a similar way we can mitigate this by creating a data pipeline. This pipeline will take each original dataframe in and run the same preprocessing steps. This ensures everything is going through the same steps. Pipelines are not required but it will help you to stay organized</p>
+<p>To make a pipeline we'll need to make the previous steps we created into a function to pass each dataframe through</p>
 
 </div>
 </div>
@@ -1039,7 +1252,7 @@ layout: notebook
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Running-the-pipeline">Running the pipeline<a class="anchor-link" href="#Running-the-pipeline"> </a></h3><p>We can consolidate the number of duplicate lines to run into a function and process all similar datasets with the same function. The code below reads in each dataset and immediately uses the pandas .pipe() function passing in the preprocessing function. Though we didn't use it, the .pipe(0 function allows positional and keyword arguments to be passed in with the function to run.</p>
+<h3 id="Running-the-pipeline">Running the pipeline<a class="anchor-link" href="#Running-the-pipeline"> </a></h3><p>We can consolidate the number of duplicate lines to run into a function and process all similar datasets with the same function. The code below reads in each dataset and immediately uses the pandas .pipe() function passing in the preprocessing function. Though we didn't use it, the <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.pipe.html?highlight=pipe#pandas.DataFrame.pipe">pandas.DataFrame.pipe()</a> function allows positional and keyword arguments to be passed in with the function to run.</p>
 
 </div>
 </div>
@@ -1064,6 +1277,14 @@ layout: notebook
 </div>
     {% endraw %}
 
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="The-Jist">The Jist<a class="anchor-link" href="#The-Jist"> </a></h3><p>Data cleaning and preprocessing is not the most fun job in data science but it sets the foundation for whatever model that will be used. There are a number of automated tools and software that claim to automaticlly clean datasets but from this notebook it's easy to see it isn't a cookie cutter process. This dataset was cleaned knowing a linear regression model was going to be used and the tags to fit the model but various other methods could have been used to clean this data. Such as scaling the dataset or one-hot encoding all string columns (but I plan to not use most of them so I didn't bother). An experienced engineer onced told me coding should be the easy part. That staement didn't hit me at first but I now understand that statement speaks to the impoartance of understanding what you want to do with the data or a model. Speaking of model, in the next post we'll get right into linear regression models and how to measure their success cause
+<img src="https://media.giphy.com/media/C7vI9SlliHtp6o478J/giphy.gif" alt="obama"></p>
+
+</div>
+</div>
+</div>
 </div>
  
 
