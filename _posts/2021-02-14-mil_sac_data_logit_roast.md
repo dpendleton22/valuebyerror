@@ -36,6 +36,13 @@ layout: notebook
 </div>
 </div>
 </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="https://media.giphy.com/media/14bp9yoVGTfwas/giphy.gif" alt="Data Pipeline"></p>
+
+</div>
+</div>
+</div>
     {% raw %}
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -500,6 +507,13 @@ layout: notebook
 </div>
 </div>
 </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="https://media.giphy.com/media/xT8qBit7YomT80d0M8/giphy.gif" alt="class imbalance"></p>
+
+</div>
+</div>
+</div>
     {% raw %}
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -665,6 +679,14 @@ Count for 1.0: 51
 </div>
 </div>
 </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Enter the Matrix:
+<img src="https://media.giphy.com/media/1CNsm9ZkHF0m4/giphy.gif" alt="Enter the Matrix"></p>
+
+</div>
+</div>
+</div>
     {% raw %}
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -714,6 +736,7 @@ Count for 1.0: 51
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="60%-doesn't-look-so-good-now...">60% doesn't look so good now...<a class="anchor-link" href="#60%-doesn't-look-so-good-now..."> </a></h3><p>This confusion matrx shows our model can easily get to 60% accuracy by simply predicting 0 or 'loss' for the team which is not how we want our model to predict. The goal of the model is to generalize the data</p>
+<p><img src="https://media.giphy.com/media/9Fticsj7froxbpd5Sg/giphy.gif" alt="uh oh"></p>
 
 </div>
 </div>
@@ -1322,7 +1345,8 @@ Opponent.TRB    -0.0428      0.044     -0.971      0.332      -0.129       0.044
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Next-Steps:">Next Steps:<a class="anchor-link" href="#Next-Steps:"> </a></h2><p>As within any data science project, there are a number of next steps or changes that can be added to a project. For this specific project I believe adding more descriptive information about the data and each team would assist the logisitc regression model. To be more specific, there are advanced analytics used in the world of sports analytics that would help this project. For example, there is an ELO rating</p>
+<h2 id="Next-Steps:-Lets-LEVEL-UP!">Next Steps: Lets LEVEL UP!<a class="anchor-link" href="#Next-Steps:-Lets-LEVEL-UP!"> </a></h2><p>As within any data science project, there are a number of next steps or changes that can be added to a project to level up. For this specific project I believe adding more descriptive information about the data and each team would assist the logisitc regression model. To be more specific, there are advanced analytics used in the world of sports analytics that would help this project. For example, there is an ELO rating</p>
+<p><img src="https://media.giphy.com/media/E47JKwZnxvHuPjPkn1/giphy.gif" alt="level up"></p>
 
 </div>
 </div>
