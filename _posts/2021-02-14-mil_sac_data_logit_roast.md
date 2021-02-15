@@ -1347,6 +1347,7 @@ Opponent.TRB    -0.0428      0.044     -0.971      0.332      -0.129       0.044
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Next-Steps:-Lets-LEVEL-UP!">Next Steps: Lets LEVEL UP!<a class="anchor-link" href="#Next-Steps:-Lets-LEVEL-UP!"> </a></h2><p>As within any data science project, there are a number of next steps or changes that can be added to a project to level up. For this specific project I believe adding more descriptive information about the data and each team would assist the logisitc regression model. To be more specific, there are advanced analytics used in the world of sports analytics that would help this project. For example, there is an ELO rating</p>
 <p><img src="https://media.giphy.com/media/E47JKwZnxvHuPjPkn1/giphy.gif" alt="level up"></p>
+<p>In addition to the data revisions, I plan to test other models for classiciation such as XGBoost, Support Vector Machine</p>
 
 </div>
 </div>
