@@ -15,7 +15,7 @@ Exploratory analysis is an underrated process that allows us to gain some critic
 
 <b><i>What is this article and what will you show me?</i></b>
 <p>
-For quite some time I’ve been meaning to jump into the realm of sports analytics but there were way too many things to take into account and five-thirty-eight is killing’ the game so why even bother? Because it’s real out here and I still have questions that are not answered, and I aint going to Sway for the answers. 
+For quite some time I’ve been meaning to jump into the realm of sports analytics but there were way too many things to take into account and five-thirty-eight is killing’ the game so why even bother? Because it’s real out here and I still have questions that are not answered, and I ain't going to Sway for the answers. 
 </p>
 
 ![](https://media.giphy.com/media/PaPvxVB5dD6py/giphy.gif)
@@ -60,8 +60,8 @@ Before we jump stop into this box plot, lets take a quick euro step to learn abo
 
 <i>Shoutout to the WNBA for this one #WatchMeWork</i>
 
-NBA stats have two distinct categories, baisc and advanced. All the stats used in this article are categorized as basic stats; which are stats that can be determined in-game. Such as keeping track of a teams points or how many blocks they have. Advanced stats is a newer trend in the field and is where things get a little, well...advanced. They can include stats such as player ratings or player efficiency. These advanced stats are developed calculations that are derived by using the basic stats in the alogorithms. I'll dive into the different advanced stats in another article but for the basic stats you'll see the following:
-* <b>FG%</b> - Field goal percenatge
+NBA stats have two distinct categories, basic and advanced. All the stats used in this article are categorized as basic stats; which are stats that can be determined in-game. Such as keeping track of a teams points or how many blocks they have. Advanced stats is a newer trend in the field and is where things get a little, well...advanced. They can include stats such as player ratings or player efficiency. These advanced stats are developed calculations that are derived by using the basic stats in the algorithms. I'll dive into the different advanced stats in another article but for the basic stats you'll see the following:
+* <b>FG%</b> - Field goal percentage
 * <b>3P%</b> - Three point percentage
 * <b>FT%</b> - Free throw percentage
 * <b>AST</b> - Total assists
@@ -93,11 +93,11 @@ All basic stats in this article are on a team level but they can also be used to
 
 The box plot is great as a quick glance to see the trends within the data but there’s another plot that will slice the data into an even finer exploration for analysis 
 
-A histogram will show how frequently a specific stat occured, and with a little extra sauce we can split that data to view home and away wins and losses. 
+A histogram will show how frequently a specific stat occurred, and with a little extra sauce we can split that data to view home and away wins and losses. 
 
 ![](https://media.giphy.com/media/xT0xem1beeRkr4y6LS/giphy.gif)
 
-<i>Shouout to Giannis with the extra sauce for this post</i>
+<i>Shoutout to Giannis with the extra sauce for this post</i>
 
 <b>The Histogram </b>
 
