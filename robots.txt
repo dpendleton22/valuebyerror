@@ -1,1 +1,1 @@
-Sitemap: https://dpendleton22.github.io/valuebyerror/sitemap.xml
+Sitemap: https://valuebyerror.com/blog/sitemap.xml
