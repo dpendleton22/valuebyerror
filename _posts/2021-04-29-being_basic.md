@@ -49,14 +49,9 @@ layout: notebook
     - Exploding Gradient
     - Scaling
 3. PyTorch Manual Gradient Descent
+4. PyTorch backpropogation and Scaling with a perceptron
 
 </code></pre>
-<p><img src="/valuebyerror/images/copied_from_nb/./lin_reg_margin/pytorch_grad_desc.png" alt="grad-descent-margin"></p>
-
-<pre><code>4. PyTorch backpropogation and Scaling with a perceptron
-
-</code></pre>
-<p><img src="/valuebyerror/images/copied_from_nb/./pytorch_perceptron.png" alt="grad-descent-margin"></p>
 <h3 id="TL;DR">TL;DR<a class="anchor-link" href="#TL;DR"> </a></h3>
 <pre><code>1. Just start coding
 2. Revisit basic linear regression
