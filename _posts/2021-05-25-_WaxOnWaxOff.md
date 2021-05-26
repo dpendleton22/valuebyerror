@@ -23,19 +23,6 @@ layout: notebook
         
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Data-Science-Interviews">Data Science Interviews<a class="anchor-link" href="#Data-Science-Interviews"> </a></h2><blockquote><p>"I've created, facilated and taken data science interviews...I just have a few cents on the process"</p>
-</blockquote>
-<ul>
-<li>toc:true- branch: master</li>
-<li>badges: true</li>
-<li>comments: true</li>
-<li>categories: [data science interviews, interviewing]</li>
-<li>image: <a href="https://media.giphy.com/media/GIQkxve3gvNHG/giphy.gif">https://media.giphy.com/media/GIQkxve3gvNHG/giphy.gif</a></li>
-</ul>
-
-</div>
-</div>
-</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Candidates-must-be-compared-but-I-have-some-thoughts-on-the-current-methods-I've-seen-in-the-field:">Candidates must be compared but I have some thoughts on the current methods I've seen in the field:<a class="anchor-link" href="#Candidates-must-be-compared-but-I-have-some-thoughts-on-the-current-methods-I've-seen-in-the-field:"> </a></h2><ul>
