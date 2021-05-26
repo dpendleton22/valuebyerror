@@ -1,6 +1,13 @@
 ---
 keywords: fastai
-title: Title
+title: Wax On, Wax Off
+description: "It's not you, interviews need some TLC"
+toc: true
+branch: master
+badges: true
+comments: true
+categories: [data science interviews, interviewing]
+image: https://media.giphy.com/media/GIQkxve3gvNHG/giphy.gif
 nb_path: _notebooks/2021-05-25_WaxOnWaxOff.ipynb
 layout: notebook
 ---
