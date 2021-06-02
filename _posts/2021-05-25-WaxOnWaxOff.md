@@ -24,19 +24,19 @@ layout: notebook
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>"I've created, facilated and taken data science interviews...I just have a few cents on the process"</p>
-<h2 id="What-This-Post-is-About:">What This Post is About:<a class="anchor-link" href="#What-This-Post-is-About:"> </a></h2><p>Data science interviews and their process....that's it (This isn't about computer science based interviews)</p>
+<h2 id="What-This-Post-is-About">What This Post is About<a class="anchor-link" href="#What-This-Post-is-About"> </a></h2><p>Data science interviews and their process....that's it (This isn't about computer science based interviews)</p>
 <h2 id="Interviews-Should">Interviews Should<a class="anchor-link" href="#Interviews-Should"> </a></h2><ul>
 <li>Match the job day to day </li>
 <li>Be project based over a few days</li>
 <li>Allow the interviewer to show their imagination (a number of data science solutions and break throughs are not complex but clever)</li>
 </ul>
 <p><img src="https://media.giphy.com/media/d3mlE7uhX8KFgEmY/giphy.gif" alt="use_your_head"></p>
-<h2 id="Interviews-Should-Not:">Interviews Should Not:<a class="anchor-link" href="#Interviews-Should-Not:"> </a></h2><ul>
+<h2 id="Interviews-Should-Not">Interviews Should Not<a class="anchor-link" href="#Interviews-Should-Not"> </a></h2><ul>
 <li>Be computer science algorithm based? (unless using BFS at work it shouldn't be tested)</li>
 <li>Involve coding under a clock? I've never missed a project due to needing an extra 30 min. Oh yeah, and EVERYONE uses stackoverflow and google in some capacity
 <img src="https://media.giphy.com/media/jqScOnk9Dqk7ILU4kF/giphy.gif" alt="timer"></li>
 </ul>
-<h2 id="My-favorite-interviews:">My favorite interviews:<a class="anchor-link" href="#My-favorite-interviews:"> </a></h2><ul>
+<h2 id="My-favorite-interviews">My favorite interviews<a class="anchor-link" href="#My-favorite-interviews"> </a></h2><ul>
 <li>Open ended problem solving projects. It tests my ability to meet a deadline, use my imagination and explain my process but these are also some of the most difficult interviews to create....I've attempted it before</li>
 </ul>
 
@@ -68,7 +68,7 @@ layout: notebook
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="What-I-was-trying-to-do:">What I was trying to do:<a class="anchor-link" href="#What-I-was-trying-to-do:"> </a></h3><ul>
+<h3 id="What-I-was-trying-to-do">What I was trying to do<a class="anchor-link" href="#What-I-was-trying-to-do"> </a></h3><ul>
 <li>Create an interview process to determine the right candidates for our research group</li>
 <li>Type of interview: Project (1 week)</li>
 <li>Data: 3 Open sourced sets from Kaggle (candidate selected one)</li>
@@ -80,7 +80,7 @@ layout: notebook
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="What-actually-happened:">What actually happened:<a class="anchor-link" href="#What-actually-happened:"> </a></h3><ul>
+<h3 id="What-actually-happened">What actually happened<a class="anchor-link" href="#What-actually-happened"> </a></h3><ul>
 <li>The removal of creating and implementing a model set the bar too low. By the fourth candidate, we saw very similar analysis presentations</li>
 <li>Finding an open sourced dataset was harder than anticpated </li>
 <li>Some candidates were confused by our laxed instructions. Saying "Here's some data, explore it, and tell us what you'd do to it" left some candidated asking for direction
