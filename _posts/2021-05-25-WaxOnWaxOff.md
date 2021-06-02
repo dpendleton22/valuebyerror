@@ -7,7 +7,7 @@ branch: master
 badges: true
 comments: true
 categories: [data science interviews, interviewing]
-image: https://media.giphy.com/media/GIQkxve3gvNHG/giphy.gif
+image: https://media.giphy.com/media/gmxLyCyh6xrR6/giphy.gif
 nb_path: _notebooks/2021-05-25-WaxOnWaxOff.ipynb
 layout: notebook
 ---
