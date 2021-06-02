@@ -1,6 +1,6 @@
 ---
 keywords: fastai
-description: "I've created, facilated and taken data science interviews...I just have a few cents on the process"
+description: "It's not you...data science interviews need some TLC"
 title: Data Science Interviews
 toc: true
 branch: master
