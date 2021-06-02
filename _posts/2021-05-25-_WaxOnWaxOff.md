@@ -1,7 +1,7 @@
 ---
 keywords: fastai
 title: Wax On, Wax Off
-description: "It's not you, interviews need some TLC"
+description: "It's not you, data science interviews need some TLC"
 toc: true
 branch: master
 badges: true
